@@ -48,7 +48,7 @@ services:
       ports:
         - 3307:3307
       environment:
-        MYSQL_DATABASE: job-agency
+        MYSQL_DATABASE: job_agency
         MYSQL_ROOT_PASSWORD: passion
         MYSQL_USER: team
         MYSQL_PASSWORD: passion
