@@ -29,7 +29,7 @@ class Candidature
     private $job;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="candidatures")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="candidatures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $candidate;
@@ -49,6 +49,17 @@ class Candidature
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cv;
+
+    public function __construct()
+    {
+        $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -122,6 +133,18 @@ class Candidature
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getCv(): ?string
+    {
+        return $this->cv;
+    }
+
+    public function setCv(string $cv): self
+    {
+        $this->cv = $cv;
 
         return $this;
     }
