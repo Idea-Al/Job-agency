@@ -1,0 +1,35 @@
+Query:
+    type: object
+    config:
+        fields:
+            User:
+                type: 'User'
+                args:
+                    id:
+                        description: 'Resolves User using its id.'
+                        type: 'Int!'
+                resolve: "@=resolver('User', [args['id']])"
+            Users:
+                type: '[User]'
+                resolve: "@=resolver('Users')"
+            Job:
+                type: 'Job'
+                args:
+                    id:
+                        description: 'Resolves Job using its id'
+                        type: 'Int!'
+                resolve: "@=resolver('Job', [args['id']])"
+            Jobs:
+                type: '[Job]'
+                resolve: "@=resolver('Jobs')"
+            # Rocket:
+            #     type: 'Rocket'
+            #     args:
+            #         id:
+            #             description: 'Resolves Rocket using its id'
+            #             type: 'Int!'
+            #     resolve: "@=resolver('Rocket', [args['id']])"
+            # Rockets:
+            #     type: '[Rocket]'
+            #     resolve: "@=resolver('Rockets')"
+                

@@ -24,6 +24,16 @@ class Job
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $companyName;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -33,7 +43,13 @@ class Job
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $companyName;
+    private $district;
+
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $start_at;
 
     /**
      * @ORM\Column(type="integer")
@@ -50,26 +66,13 @@ class Job
      */
     private $updated_at;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $district;
 
     /**
      * @ORM\OneToMany(targetEntity=Candidature::class, mappedBy="job")
      */
     private $candidatures;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $start_at;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
-  
 
     public function __construct()
     {
@@ -95,14 +98,14 @@ class Job
         return $this;
     }
 
-    public function getCity(): ?string
+    public function getDescription(): ?string
     {
-        return $this->city;
+        return $this->description;
     }
 
-    public function setCity(string $city): self
+    public function setDescription(string $description): self
     {
-        $this->city = $city;
+        $this->description = $description;
 
         return $this;
     }
@@ -118,6 +121,44 @@ class Job
 
         return $this;
     }
+
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getDistrict(): ?string
+    {
+        return $this->district;
+    }
+
+    public function setDistrict(string $district): self
+    {
+        $this->district = $district;
+
+        return $this;
+    }
+
+    public function getStartAt(): ?\DateTimeInterface
+    {
+        return $this->start_at;
+    }
+
+    public function setStartAt(\DateTimeInterface $start_at): self
+    {
+        $this->start_at = $start_at;
+
+        return $this;
+    }
+
 
     public function getSalary(): ?int
     {
@@ -155,30 +196,6 @@ class Job
         return $this;
     }
 
-    public function getDistrict(): ?string
-    {
-        return $this->district;
-    }
-
-    public function setDistrict(string $district): self
-    {
-        $this->district = $district;
-
-        return $this;
-    }
-
-    public function getStartAt(): ?\DateTimeInterface
-    {
-        return $this->start_at;
-    }
-
-    public function setStartAt(\DateTimeInterface $start_at): self
-    {
-        $this->start_at = $start_at;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Candidature[]
      */
@@ -209,16 +226,5 @@ class Job
         return $this;
     }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
 
 }

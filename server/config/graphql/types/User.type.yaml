@@ -1,0 +1,22 @@
+User:
+    type: object
+    config:
+        fields:
+            id:
+                type: 'Int!'
+            firstname:
+                type: 'String!'
+            lastname:
+                type: 'String!'
+            email:
+                type: 'String!'
+            phone:
+                type: 'String'
+            country:
+                type: 'String'
+            district:
+                type: 'String'            
+            city:
+                type: 'String'
+           
+            

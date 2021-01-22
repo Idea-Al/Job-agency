@@ -1,0 +1,24 @@
+Job:
+    type: object
+    config:
+        fields:
+            id:
+                type: 'Int!'
+            title:
+                type: 'String!'
+            description:
+                type: 'String!'
+            companyName:
+                type: 'String!'
+            city:
+                type: 'String'
+            district:
+                type: 'String'
+            start_at:
+                type: 'DateTime!'  
+            salary:
+                type: 'Int'
+            created_at: 
+                type: 'DateTime!'
+            updated_at:
+                type: 'DateTime!'     
